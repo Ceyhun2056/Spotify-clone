@@ -1,0 +1,48 @@
+{
+  "name": "spotify-clone",
+  "version": "1.0.0",
+  "description": "A modern music streaming web application built with vanilla HTML, CSS, and JavaScript",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "python -m http.server 8000",
+    "serve-php": "php -S localhost:8000",
+    "lint": "echo 'No linting configured yet'",
+    "build": "echo 'No build process needed for vanilla JS'",
+    "test": "echo 'No tests configured yet'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/spotify-clone.git"
+  },
+  "keywords": [
+    "music",
+    "streaming",
+    "spotify",
+    "javascript",
+    "html",
+    "css",
+    "pwa",
+    "web-app",
+    "playlist",
+    "audio"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/your-username/spotify-clone/issues"
+  },
+  "homepage": "https://github.com/your-username/spotify-clone#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}
