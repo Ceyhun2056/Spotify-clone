@@ -43,7 +43,7 @@ class MusicApp {
                 image: 'https://i1.sndcdn.com/artworks-PNgS1KVsDxfM-0-t500x500.jpg',
                 genre: 'Pop',
                 type: 'track',
-                audioSrc: 'assets/music/Taylor_Swift_-_Anti-Hero_CeeNaija.com_.mp3'
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/Taylor_Swift_-_Anti-Hero_CeeNaija.com_.mp3'
             },
             {
                 id: '2',
@@ -55,7 +55,7 @@ class MusicApp {
                 image: 'https://i1.sndcdn.com/artworks-pWsK2LEltuMI-0-t500x500.jpg',
                 genre: 'Holiday Pop',
                 type: 'track',
-                audioSrc: 'assets/music/Taylor_Swift_-_Last_Christmas_CeeNaija.com_.mp3'
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/Taylor_Swift_-_Last_Christmas_CeeNaija.com_.mp3'
             },
             {
                 id: '3',
@@ -67,7 +67,7 @@ class MusicApp {
                 image: 'https://i1.sndcdn.com/artworks-nCpzSBjExEcg-0-t1080x1080.jpg',
                 genre: 'Pop',
                 type: 'track',
-                audioSrc: 'assets/music/Taylor_Swift_-_Midnight_Rain_CeeNaija.com_.mp3'
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/Taylor_Swift_-_Midnight_Rain_CeeNaija.com_.mp3'
             },
             {
                 id: '4',
@@ -79,7 +79,7 @@ class MusicApp {
                 image: 'https://i1.sndcdn.com/artworks-PNgS1KVsDxfM-0-t500x500.jpg',
                 genre: 'Pop',
                 type: 'track',
-                audioSrc: 'assets/music/Taylor_Swift_-_Snow_On_The_Beach_Ft_Lana_Del_Rey_CeeNaija.com_.mp3'
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/Taylor_Swift_-_Snow_On_The_Beach_Ft_Lana_Del_Rey_CeeNaija.com_.mp3'
             },
             {
                 id: '5',
@@ -91,7 +91,7 @@ class MusicApp {
                 image: 'https://i1.sndcdn.com/artworks-pWsK2LEltuMI-0-t500x500.jpg',
                 genre: 'Pop',
                 type: 'track',
-                audioSrc: 'assets/music/Taylor_Swift_-_Sweet_Nothing_CeeNaija.com_.mp3'
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/Taylor_Swift_-_Sweet_Nothing_CeeNaija.com_.mp3'
             },
             {
                 id: '6',
@@ -103,7 +103,7 @@ class MusicApp {
                 image: 'assets/icons/ab67616d0000b273a7a0822e731ff95c86bc8649.jfif',
                 genre: 'Electronic Pop',
                 type: 'track',
-                audioSrc: 'assets/music/Clean_Bandit_-_Don_t_Leave_Me_Lonely_CeeNaija.com_.mp3'
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/Clean_Bandit_-_Don_t_Leave_Me_Lonely_CeeNaija.com_.mp3'
             },
             {
                 id: '7',
@@ -115,7 +115,7 @@ class MusicApp {
                 image: 'assets/icons/kanye-west-album-cover-5t9c3rplh12s4zut.jpg',
                 genre: 'Hip Hop',
                 type: 'track',
-                audioSrc: 'assets/music/Kanye_West_-_True_love_CeeNaija.com_.mp3'
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/Kanye_West_-_True_love_CeeNaija.com_.mp3'
             },
             {
                 id: '8',
@@ -127,7 +127,7 @@ class MusicApp {
                 image: 'assets/icons/download.jfif',
                 genre: 'Afrobeats',
                 type: 'track',
-                audioSrc: 'assets/music/Wanitwa_Mos_-_YOU_I_Ft_Khalid_CeeNaija.com_.mp3'
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/Wanitwa_Mos_-_YOU_I_Ft_Khalid_CeeNaija.com_.mp3'
             },
             {
                 id: '9',
@@ -139,7 +139,7 @@ class MusicApp {
                 image: 'https://i1.sndcdn.com/artworks-7fmpy8Mz111f-0-t1080x1080.jpg',
                 genre: 'Synth Pop',
                 type: 'track',
-                audioSrc: 'assets/music/The Weeknd - Blinding Lights (192kbps).mp3'
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/The Weeknd - Blinding Lights (192kbps).mp3'
             },
             {
                 id: '10',
@@ -151,7 +151,7 @@ class MusicApp {
                 image: 'https://i1.sndcdn.com/artworks-kiRwQqvQ9Z58-0-t500x500.jpg',
                 genre: 'R&B',
                 type: 'track',
-                audioSrc: 'assets/music/The Weeknd - I Feel It Coming (192kbps).mp3'
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/The Weeknd - I Feel It Coming (192kbps).mp3'
             },
             {
                 id: '11',
@@ -163,7 +163,7 @@ class MusicApp {
                 image: 'https://i1.sndcdn.com/artworks-mDGXphgISIkq-0-t500x500.jpg',
                 genre: 'Synth Pop',
                 type: 'track',
-                audioSrc: 'assets/music/The Weeknd - Blinding Lights (192kbps) (1).mp3'
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/The Weeknd - Blinding Lights (192kbps) (1).mp3'
             }
         ];
 
