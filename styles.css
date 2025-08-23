@@ -494,6 +494,38 @@ body {
     transform: scale(1.05);
 }
 
+/* Add to Playlist Button */
+.add-to-playlist-btn {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    color: var(--background-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.3s ease;
+    z-index: 2;
+    font-size: 12px;
+}
+
+.card:hover .add-to-playlist-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.add-to-playlist-btn:hover {
+    background-color: white;
+    transform: scale(1.1);
+}
+
 /* Search Filters */
 .search-filters {
     display: flex;
@@ -1363,6 +1395,21 @@ body {
 
 .context-menu-item.destructive {
     color: var(--accent-color);
+}
+
+.context-menu-item.menu-header {
+    font-weight: bold;
+    background-color: var(--hover-color);
+    color: var(--accent-color);
+    pointer-events: none;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 4px;
+}
+
+.playlist-menu {
+    max-width: 250px;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 /* Toast Notifications */

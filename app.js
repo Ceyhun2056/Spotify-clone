@@ -23,13 +23,191 @@ class MusicApp {
         this.audioPlayer = document.getElementById('audioPlayer');
         this.audioPlayer.volume = this.volume;
         
+        // Simple demo data (no external library)
+        this.initDemoData();
+        
         // Initialize the application
         this.init();
     }
 
+    // Initialize demo data for the app
+    initDemoData() {
+        this.demoTracks = [
+            {
+                id: '1',
+                title: 'Anti-Hero',
+                subtitle: 'Taylor Swift',
+                artist: 'Taylor Swift',
+                album: 'Midnights',
+                duration: '3:20',
+                image: 'https://i1.sndcdn.com/artworks-PNgS1KVsDxfM-0-t500x500.jpg',
+                genre: 'Pop',
+                type: 'track',
+                audioSrc: 'assets/music/Taylor_Swift_-_Anti-Hero_CeeNaija.com_.mp3'
+            },
+            {
+                id: '2',
+                title: 'Last Christmas',
+                subtitle: 'Taylor Swift',
+                artist: 'Taylor Swift',
+                album: 'Holiday Collection',
+                duration: '4:02',
+                image: 'https://i1.sndcdn.com/artworks-pWsK2LEltuMI-0-t500x500.jpg',
+                genre: 'Holiday Pop',
+                type: 'track',
+                audioSrc: 'assets/music/Taylor_Swift_-_Last_Christmas_CeeNaija.com_.mp3'
+            },
+            {
+                id: '3',
+                title: 'Midnight Rain',
+                subtitle: 'Taylor Swift',
+                artist: 'Taylor Swift',
+                album: 'Midnights',
+                duration: '2:54',
+                image: 'https://i1.sndcdn.com/artworks-nCpzSBjExEcg-0-t1080x1080.jpg',
+                genre: 'Pop',
+                type: 'track',
+                audioSrc: 'assets/music/Taylor_Swift_-_Midnight_Rain_CeeNaija.com_.mp3'
+            },
+            {
+                id: '4',
+                title: 'Snow On The Beach (Ft. Lana Del Rey)',
+                subtitle: 'Taylor Swift',
+                artist: 'Taylor Swift',
+                album: 'Midnights',
+                duration: '4:16',
+                image: 'https://i1.sndcdn.com/artworks-PNgS1KVsDxfM-0-t500x500.jpg',
+                genre: 'Pop',
+                type: 'track',
+                audioSrc: 'assets/music/Taylor_Swift_-_Snow_On_The_Beach_Ft_Lana_Del_Rey_CeeNaija.com_.mp3'
+            },
+            {
+                id: '5',
+                title: 'Sweet Nothing',
+                subtitle: 'Taylor Swift',
+                artist: 'Taylor Swift',
+                album: 'Midnights',
+                duration: '3:08',
+                image: 'https://i1.sndcdn.com/artworks-pWsK2LEltuMI-0-t500x500.jpg',
+                genre: 'Pop',
+                type: 'track',
+                audioSrc: 'assets/music/Taylor_Swift_-_Sweet_Nothing_CeeNaija.com_.mp3'
+            },
+            {
+                id: '6',
+                title: 'Don\'t Leave Me Lonely',
+                subtitle: 'Clean Bandit',
+                artist: 'Clean Bandit',
+                album: 'What Is Love?',
+                duration: '3:46',
+                image: 'assets/icons/ab67616d0000b273a7a0822e731ff95c86bc8649.jfif',
+                genre: 'Electronic Pop',
+                type: 'track',
+                audioSrc: 'assets/music/Clean_Bandit_-_Don_t_Leave_Me_Lonely_CeeNaija.com_.mp3'
+            },
+            {
+                id: '7',
+                title: 'True Love',
+                subtitle: 'Kanye West',
+                artist: 'Kanye West',
+                album: 'Donda 2',
+                duration: '3:25',
+                image: 'assets/icons/kanye-west-album-cover-5t9c3rplh12s4zut.jpg',
+                genre: 'Hip Hop',
+                type: 'track',
+                audioSrc: 'assets/music/Kanye_West_-_True_love_CeeNaija.com_.mp3'
+            },
+            {
+                id: '8',
+                title: 'YOU & I (Ft. Khalid)',
+                subtitle: 'Wanitwa Mos',
+                artist: 'Wanitwa Mos',
+                album: 'Single',
+                duration: '3:52',
+                image: 'assets/icons/download.jfif',
+                genre: 'Afrobeats',
+                type: 'track',
+                audioSrc: 'assets/music/Wanitwa_Mos_-_YOU_I_Ft_Khalid_CeeNaija.com_.mp3'
+            },
+            {
+                id: '9',
+                title: 'Blinding Lights',
+                subtitle: 'The Weeknd',
+                artist: 'The Weeknd',
+                album: 'After Hours',
+                duration: '3:20',
+                image: 'https://i1.sndcdn.com/artworks-7fmpy8Mz111f-0-t1080x1080.jpg',
+                genre: 'Synth Pop',
+                type: 'track',
+                audioSrc: 'assets/music/The Weeknd - Blinding Lights (192kbps).mp3'
+            },
+            {
+                id: '10',
+                title: 'I Feel It Coming',
+                subtitle: 'The Weeknd',
+                artist: 'The Weeknd',
+                album: 'Starboy',
+                duration: '4:29',
+                image: 'https://i1.sndcdn.com/artworks-kiRwQqvQ9Z58-0-t500x500.jpg',
+                genre: 'R&B',
+                type: 'track',
+                audioSrc: 'assets/music/The Weeknd - I Feel It Coming (192kbps).mp3'
+            },
+            {
+                id: '11',
+                title: 'Blinding Lights (Alternative)',
+                subtitle: 'The Weeknd',
+                artist: 'The Weeknd',
+                album: 'After Hours',
+                duration: '3:20',
+                image: 'https://i1.sndcdn.com/artworks-mDGXphgISIkq-0-t500x500.jpg',
+                genre: 'Synth Pop',
+                type: 'track',
+                audioSrc: 'assets/music/The Weeknd - Blinding Lights (192kbps) (1).mp3'
+            }
+        ];
+
+        this.demoPlaylists = [
+            {
+                id: 'playlist1',
+                title: 'Featured Mix',
+                subtitle: 'Popular songs',
+                image: 'assets/icons/music.png',
+                type: 'playlist',
+                tracks: ['1', '9', '11', '7', '8', '6'] // Anti-Hero, Blinding Lights, Blinding Lights Alt, True Love, YOU & I, Don't Leave Me Lonely
+            },
+            {
+                id: 'playlist2',
+                title: 'Chill Vibes',
+                subtitle: 'Relaxing tunes',
+                image: 'assets/icons/music.png',
+                type: 'playlist',
+                tracks: ['3', '4', '5', '2', '10'] // Midnight Rain, Snow On The Beach, Sweet Nothing, Last Christmas, I Feel It Coming
+            }
+        ];
+
+        this.demoGenres = [
+            {
+                id: 'pop',
+                title: 'Pop',
+                subtitle: 'Popular music',
+                image: 'assets/icons/music.png',
+                type: 'category'
+            },
+            {
+                id: 'rock',
+                title: 'Rock',
+                subtitle: 'Rock music',
+                image: 'assets/icons/music.png',
+                type: 'category'
+            }
+        ];
+    }
+
     // Initialize all event listeners and load initial content
-    init() {
+    async init() {
         this.bindEvents();
+        console.log('🎵 Music App: Using demo data (no external music library)');
         this.loadHomePage();
         this.updatePlaylistsUI();
         this.setupAudioEvents();
@@ -96,27 +274,90 @@ class MusicApp {
         // Modal management
         document.querySelectorAll('[data-modal]').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                this.hideModal(e.target.dataset.modal);
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Get the modal ID from the button or its parent
+                const target = e.target.closest('[data-modal]');
+                const modalId = target ? target.dataset.modal : null;
+                
+                console.log('Close button clicked for modal:', modalId);
+                if (modalId) {
+                    this.hideModal(modalId);
+                }
             });
         });
 
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    const modalId = overlay.id;
+                    console.log('Clicked outside modal:', modalId);
+                    this.hideModal(modalId);
+                }
+            });
+        });
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const openModal = document.querySelector('.modal-overlay:not(.hidden)');
+                if (openModal) {
+                    console.log('ESC pressed, closing modal:', openModal.id);
+                    this.hideModal(openModal.id);
+                }
+            }
+        });
+
         // Authentication events
-        document.getElementById('signInBtn').addEventListener('click', () => {
-            this.showModal('signInModal');
-        });
+        const signInBtn = document.getElementById('signInBtn');
+        const signUpBtn = document.getElementById('signUpBtn');
+        const signOutBtn = document.getElementById('signOutBtn');
+        const profileBtn = document.getElementById('profileBtn');
 
-        document.getElementById('signUpBtn').addEventListener('click', () => {
-            this.showModal('signUpModal');
-        });
+        if (signInBtn) {
+            signInBtn.addEventListener('click', () => {
+                console.log('Sign In button clicked');
+                this.showModal('signInModal');
+            });
+        } else {
+            console.error('signInBtn element not found');
+        }
 
-        document.getElementById('signOutBtn').addEventListener('click', () => {
-            this.signOut();
-        });
+        if (signUpBtn) {
+            signUpBtn.addEventListener('click', () => {
+                console.log('Sign Up button clicked');
+                this.showModal('signUpModal');
+            });
+        } else {
+            console.error('signUpBtn element not found');
+        }
 
-        document.getElementById('profileBtn').addEventListener('click', () => {
-            this.showModal('profileModal');
-            this.loadUserProfile();
-        });
+        if (signOutBtn) {
+            signOutBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.signOut();
+            });
+        }
+
+        // Direct sign out button (backup)
+        const directSignOutBtn = document.getElementById('directSignOutBtn');
+        if (directSignOutBtn) {
+            directSignOutBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.signOut();
+            });
+        }
+
+        if (profileBtn) {
+            profileBtn.addEventListener('click', () => {
+                this.showModal('profileModal');
+                this.loadUserProfile();
+            });
+        }
 
         document.getElementById('profileAvatar').addEventListener('click', () => {
             this.toggleUserDropdown();
@@ -484,21 +725,40 @@ class MusicApp {
     }
 
     signOut() {
+        console.log('Sign out method called');
+        
+        // Stop any playing music
+        if (this.audioPlayer) {
+            this.audioPlayer.pause();
+            this.isPlaying = false;
+            this.updatePlayButton();
+        }
+        
+        // Clear user data
         this.currentUser = null;
         this.isLoggedIn = false;
         localStorage.removeItem('currentUser');
         
+        // Clear UI state
         this.updateAuthUI();
         this.hideUserDropdown();
-        this.showToast('You have been signed out', 'success');
         
         // Clear user-specific data
         this.playlists = [];
         this.favorites = [];
         this.updatePlaylistsUI();
         
+        // Reset player
+        this.currentTrack = null;
+        this.updatePlayerUI();
+        
+        // Show success message
+        this.showToast('You have been signed out', 'success');
+        
         // Reload home page
         this.navigateToPage('home');
+        
+        console.log('Sign out completed');
     }
 
     loadUserProfile() {
@@ -540,6 +800,16 @@ class MusicApp {
 
     toggleUserDropdown() {
         const dropdown = document.getElementById('dropdownMenu');
+        const userInfo = document.getElementById('userInfo');
+        
+        // Make sure user is logged in and user info is visible
+        if (!this.isLoggedIn || userInfo.classList.contains('hidden')) {
+            console.log('User not logged in or user info hidden');
+            // Show sign in modal instead
+            this.showModal('signInModal');
+            return;
+        }
+        
         dropdown.classList.toggle('show');
     }
 
@@ -549,7 +819,14 @@ class MusicApp {
     }
 
     showModal(modalId) {
-        document.getElementById(modalId).classList.remove('hidden');
+        console.log('showModal called with:', modalId);
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.remove('hidden');
+            console.log('Modal shown:', modalId);
+        } else {
+            console.error('Modal not found:', modalId);
+        }
     }
 
     // Form Validation Methods
@@ -899,140 +1176,70 @@ class MusicApp {
     // Load home page content with featured music
     async loadHomePage() {
         try {
-            // Load featured content (using sample data for demo)
-            this.loadFeaturedContent();
-            this.loadTrendingContent();
-            this.loadRecommendations();
+            // Load featured content from Spotify API or fallback to demo data
+            await this.loadFeaturedContent();
+            await this.loadTrendingContent();
+            await this.loadRecommendations();
         } catch (error) {
             console.error('Error loading home page:', error);
         }
     }
 
     // Load featured content section
-    loadFeaturedContent() {
+    async loadFeaturedContent() {
         const featuredGrid = document.getElementById('featuredGrid');
+        featuredGrid.innerHTML = '<div class="loading">Loading featured content...</div>';
         
-        // Sample featured playlists
-        const featuredItems = [
-            {
-                id: 'featured-1',
-                title: 'Today\'s Top Hits',
-                subtitle: 'The most played songs right now',
-                image: 'https://via.placeholder.com/300x300?text=Top+Hits',
-                type: 'playlist'
-            },
-            {
-                id: 'featured-2',
-                title: 'Chill Vibes',
-                subtitle: 'Relax and unwind with these tracks',
-                image: 'https://via.placeholder.com/300x300?text=Chill',
-                type: 'playlist'
-            },
-            {
-                id: 'featured-3',
-                title: 'Workout Mix',
-                subtitle: 'High energy songs for your workout',
-                image: 'https://via.placeholder.com/300x300?text=Workout',
-                type: 'playlist'
-            },
-            {
-                id: 'featured-4',
-                title: 'Jazz Classics',
-                subtitle: 'Timeless jazz performances',
-                image: 'https://via.placeholder.com/300x300?text=Jazz',
-                type: 'playlist'
-            }
-        ];
+        try {
+            // Use demo playlists
+            const featuredItems = this.demoPlaylists;
 
-        featuredGrid.innerHTML = featuredItems.map(item => this.createCardHTML(item)).join('');
-        this.bindCardEvents(featuredGrid);
+            featuredGrid.innerHTML = featuredItems.map(item => this.createCardHTML(item)).join('');
+            this.bindCardEvents(featuredGrid);
+            
+        } catch (error) {
+            console.error('Error loading featured content:', error);
+            featuredGrid.innerHTML = '<div class="error">Failed to load featured content</div>';
+        }
     }
 
     // Load trending content section
-    loadTrendingContent() {
+    async loadTrendingContent() {
         const trendingGrid = document.getElementById('trendingGrid');
+        trendingGrid.innerHTML = '<div class="loading">Loading trending tracks...</div>';
         
-        // Sample trending tracks
-        const trendingItems = [
-            {
-                id: 'trending-1',
-                title: 'Blinding Lights',
-                subtitle: 'The Weeknd',
-                image: 'https://via.placeholder.com/300x300?text=Blinding+Lights',
-                type: 'track',
-                preview_url: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
-            },
-            {
-                id: 'trending-2',
-                title: 'Levitating',
-                subtitle: 'Dua Lipa',
-                image: 'https://via.placeholder.com/300x300?text=Levitating',
-                type: 'track',
-                preview_url: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
-            },
-            {
-                id: 'trending-3',
-                title: 'Good 4 U',
-                subtitle: 'Olivia Rodrigo',
-                image: 'https://via.placeholder.com/300x300?text=Good+4+U',
-                type: 'track',
-                preview_url: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
-            },
-            {
-                id: 'trending-4',
-                title: 'Stay',
-                subtitle: 'The Kid LAROI & Justin Bieber',
-                image: 'https://via.placeholder.com/300x300?text=Stay',
-                type: 'track',
-                preview_url: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
-            }
-        ];
+        try {
+            // Use demo tracks
+            const trendingItems = this.demoTracks;
 
-        trendingGrid.innerHTML = trendingItems.map(item => this.createCardHTML(item)).join('');
-        this.bindCardEvents(trendingGrid);
+            trendingGrid.innerHTML = trendingItems.map(item => this.createCardHTML(item)).join('');
+            this.bindCardEvents(trendingGrid);
+            
+        } catch (error) {
+            console.error('Error loading trending content:', error);
+            trendingGrid.innerHTML = '<div class="error">Failed to load trending content</div>';
+        }
     }
 
     // Load recommendations section
-    loadRecommendations() {
+    async loadRecommendations() {
         const recommendationsGrid = document.getElementById('recommendationsGrid');
+        recommendationsGrid.innerHTML = '<div class="loading">Loading recommendations...</div>';
         
-        // Sample recommendations
-        const recommendedItems = [
-            {
-                id: 'rec-1',
-                title: 'Indie Rock Hits',
-                subtitle: 'Alternative rock favorites',
-                image: 'https://via.placeholder.com/300x300?text=Indie+Rock',
-                type: 'playlist'
-            },
-            {
-                id: 'rec-2',
-                title: 'Electronic Dreams',
-                subtitle: 'Electronic music collection',
-                image: 'https://via.placeholder.com/300x300?text=Electronic',
-                type: 'playlist'
-            },
-            {
-                id: 'rec-3',
-                title: 'Acoustic Sessions',
-                subtitle: 'Stripped-down performances',
-                image: 'https://via.placeholder.com/300x300?text=Acoustic',
-                type: 'playlist'
-            },
-            {
-                id: 'rec-4',
-                title: 'Hip Hop Central',
-                subtitle: 'The best of hip hop',
-                image: 'https://via.placeholder.com/300x300?text=Hip+Hop',
-                type: 'playlist'
-            }
-        ];
+        try {
+            // Use all Taylor Swift tracks for recommendations
+            const recommendedItems = this.demoTracks;
 
-        recommendationsGrid.innerHTML = recommendedItems.map(item => this.createCardHTML(item)).join('');
-        this.bindCardEvents(recommendationsGrid);
+            recommendationsGrid.innerHTML = recommendedItems.map(item => this.createCardHTML(item)).join('');
+            this.bindCardEvents(recommendationsGrid);
+            
+        } catch (error) {
+            console.error('Error loading recommendations:', error);
+            recommendationsGrid.innerHTML = '<div class="error">Failed to load recommendations</div>';
+        }
     }
 
-    // Search for tracks using Spotify Web API (demo version with sample data)
+    // Search for tracks using demo data
     async searchTracks(query) {
         try {
             this.navigateToPage('search');
@@ -1040,44 +1247,32 @@ class MusicApp {
             const searchResultsGrid = document.getElementById('searchResultsGrid');
             searchResultsGrid.innerHTML = '<div class="loading">Searching...</div>';
 
-            // Simulate API call with sample data
-            setTimeout(() => {
-                const searchResults = [
-                    {
-                        id: 'search-1',
-                        title: `${query} - Result 1`,
-                        subtitle: 'Sample Artist 1',
-                        image: 'https://via.placeholder.com/300x300?text=Result+1',
-                        type: 'track',
-                        preview_url: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
-                    },
-                    {
-                        id: 'search-2',
-                        title: `${query} - Result 2`,
-                        subtitle: 'Sample Artist 2',
-                        image: 'https://via.placeholder.com/300x300?text=Result+2',
-                        type: 'track',
-                        preview_url: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
-                    },
-                    {
-                        id: 'search-3',
-                        title: `${query} Album`,
-                        subtitle: 'Sample Album Artist',
-                        image: 'https://via.placeholder.com/300x300?text=Album',
-                        type: 'album'
-                    },
-                    {
-                        id: 'search-4',
-                        title: `${query} Playlist`,
-                        subtitle: 'Curated playlist',
-                        image: 'https://via.placeholder.com/300x300?text=Playlist',
-                        type: 'playlist'
-                    }
-                ];
-
-                searchResultsGrid.innerHTML = searchResults.map(item => this.createCardHTML(item)).join('');
+            // Simple search in demo data
+            const lowerQuery = query.toLowerCase();
+            const allResults = [];
+            
+            // Search tracks
+            this.demoTracks.forEach(track => {
+                if (track.title.toLowerCase().includes(lowerQuery) || 
+                    track.artist.toLowerCase().includes(lowerQuery) ||
+                    track.album.toLowerCase().includes(lowerQuery)) {
+                    allResults.push(track);
+                }
+            });
+            
+            // Search playlists
+            this.demoPlaylists.forEach(playlist => {
+                if (playlist.title.toLowerCase().includes(lowerQuery)) {
+                    allResults.push(playlist);
+                }
+            });
+            
+            if (allResults.length > 0) {
+                searchResultsGrid.innerHTML = allResults.map(item => this.createCardHTML(item)).join('');
                 this.bindCardEvents(searchResultsGrid);
-            }, 1000);
+            } else {
+                searchResultsGrid.innerHTML = '<div class="empty-state">No results found for "' + query + '"</div>';
+            }
 
         } catch (error) {
             console.error('Search error:', error);
@@ -1131,14 +1326,24 @@ class MusicApp {
             `<img src="${item.image}" alt="${item.title}" class="card-image">` :
             `<div class="card-image"><i class="fas fa-music"></i></div>`;
 
+        const dataAttribute = item.type === 'playlist' ? 
+            `data-playlist='${JSON.stringify(item)}'` : 
+            `data-track='${JSON.stringify(item)}'`;
+
+        const addToPlaylistBtn = item.type === 'track' ? 
+            `<button class="add-to-playlist-btn" ${dataAttribute} title="Add to Playlist">
+                <i class="fas fa-plus"></i>
+            </button>` : '';
+
         return `
             <div class="card" data-id="${item.id}" data-type="${item.type}">
                 ${imageDisplay}
                 <h3 class="card-title">${item.title}</h3>
                 <p class="card-subtitle">${item.subtitle}</p>
-                <button class="play-btn-overlay" data-track='${JSON.stringify(item)}'>
+                <button class="play-btn-overlay" ${dataAttribute}>
                     <i class="fas fa-play"></i>
                 </button>
+                ${addToPlaylistBtn}
             </div>
         `;
     }
@@ -1176,6 +1381,19 @@ class MusicApp {
             });
         });
 
+        // Add to playlist button events
+        container.querySelectorAll('.add-to-playlist-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                const trackData = e.target.closest('[data-track]')?.dataset.track;
+                if (trackData) {
+                    const track = JSON.parse(trackData);
+                    this.quickAddToPlaylist(track);
+                }
+            });
+        });
+
         // Add context menu for cards
         container.querySelectorAll('.card').forEach(card => {
             card.addEventListener('contextmenu', (e) => {
@@ -1187,25 +1405,56 @@ class MusicApp {
 
     // Play a single track
     playTrack(track) {
-        if (!track.preview_url) {
-            this.showToast('No preview available for this track', 'error');
+        // Check if track has either audioSrc (local) or preview_url (external)
+        if (!track.audioSrc && !track.preview_url) {
+            this.showToast('No audio available for this track', 'error');
             return;
         }
 
         this.currentTrack = track;
-        this.audioPlayer.src = track.preview_url;
-        this.audioPlayer.play();
-        this.isPlaying = true;
-        this.updatePlayerUI();
-        this.updatePlayButton();
+        
+        // Use audioSrc for local files, or preview_url for external sources
+        const audioSource = track.audioSrc || track.preview_url;
+        
+        if (audioSource) {
+            this.audioPlayer.src = audioSource;
+            this.audioPlayer.play();
+            this.isPlaying = true;
+            this.updatePlayerUI();
+            this.updatePlayButton();
+        } else {
+            console.warn('No audio source available for track:', track.title);
+            alert('No audio available for this track');
+        }
     }
 
     // Play a playlist
     playPlaylist(playlist) {
         if (playlist.tracks && playlist.tracks.length > 0) {
-            this.currentPlaylist = playlist.tracks;
-            this.currentTrackIndex = 0;
-            this.playTrack(playlist.tracks[0]);
+            let playlistTracks;
+            
+            // Handle demo playlists (track IDs) vs custom playlists (full track objects)
+            if (typeof playlist.tracks[0] === 'string') {
+                // Demo playlists: convert track IDs to actual track objects
+                playlistTracks = playlist.tracks.map(trackId => {
+                    return this.demoTracks.find(track => track.id === trackId);
+                }).filter(track => track !== undefined);
+            } else {
+                // Custom playlists: tracks are already full objects
+                playlistTracks = playlist.tracks;
+            }
+            
+            if (playlistTracks.length > 0) {
+                this.currentPlaylist = playlistTracks;
+                this.currentTrackIndex = 0;
+                this.playTrack(playlistTracks[0]);
+                const playlistName = playlist.title || playlist.name;
+                this.showToast(`Playing playlist: ${playlistName}`, 'success');
+            } else {
+                this.showToast('No valid tracks found in playlist', 'error');
+            }
+        } else {
+            this.showToast('Playlist is empty', 'error');
         }
     }
 
@@ -1362,7 +1611,13 @@ class MusicApp {
 
     // Update player UI
     updatePlayerUI() {
-        if (!this.currentTrack) return;
+        if (!this.currentTrack) {
+            // Reset to default state when no track
+            document.getElementById('trackTitle').textContent = 'Select a song';
+            document.getElementById('trackArtist').textContent = 'No artist';
+            document.getElementById('trackImage').src = 'assets/icons/vinyl.png';
+            return;
+        }
         
         document.getElementById('trackTitle').textContent = this.currentTrack.title;
         document.getElementById('trackArtist').textContent = this.currentTrack.subtitle;
@@ -1370,6 +1625,8 @@ class MusicApp {
         const trackImage = document.getElementById('trackImage');
         if (this.currentTrack.image) {
             trackImage.src = this.currentTrack.image;
+        } else {
+            trackImage.src = 'assets/icons/vinyl.png'; // Fallback to default
         }
         
         // Update favorite button
@@ -1482,7 +1739,14 @@ class MusicApp {
 
     // Hide modal
     hideModal(modalId) {
-        document.getElementById(modalId).classList.add('hidden');
+        console.log('hideModal called with:', modalId);
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.add('hidden');
+            console.log('Modal hidden:', modalId);
+        } else {
+            console.error('Modal not found:', modalId);
+        }
     }
 
     // Show context menu
@@ -1532,6 +1796,107 @@ class MusicApp {
         setTimeout(() => {
             document.addEventListener('click', () => menu.remove(), { once: true });
         }, 0);
+    }
+
+    // Quick add to playlist (automatic)
+    quickAddToPlaylist(track) {
+        // Create "My Playlist" if no playlists exist
+        if (this.playlists.length === 0) {
+            const defaultPlaylist = {
+                id: 'playlist-' + Date.now(),
+                name: 'My Playlist',
+                tracks: [],
+                created: new Date().toISOString()
+            };
+            this.playlists.push(defaultPlaylist);
+        }
+        
+        // Use the most recently created/used playlist
+        const targetPlaylist = this.playlists[this.playlists.length - 1];
+        
+        // Check if track already exists in playlist
+        const trackExists = targetPlaylist.tracks.some(t => t.id === track.id);
+        if (trackExists) {
+            this.showToast(`"${track.title}" is already in "${targetPlaylist.name}"`, 'info');
+            return;
+        }
+        
+        // Add track to playlist
+        targetPlaylist.tracks.push(track);
+        this.savePlaylists();
+        this.updatePlaylistsUI();
+        this.showToast(`Added "${track.title}" to "${targetPlaylist.name}"`, 'success');
+    }
+
+    // Show add to playlist submenu
+    showAddToPlaylistMenu(track) {
+        // Remove existing context menus
+        document.querySelectorAll('.context-menu').forEach(menu => menu.remove());
+        
+        if (this.playlists.length === 0) {
+            this.showToast('No playlists available. Create a playlist first!', 'info');
+            return;
+        }
+        
+        const menu = document.createElement('div');
+        menu.className = 'context-menu playlist-menu';
+        
+        // Position menu at mouse location or center
+        const rect = document.body.getBoundingClientRect();
+        menu.style.left = (rect.width / 2 - 100) + 'px';
+        menu.style.top = (rect.height / 2 - 100) + 'px';
+        
+        const menuItems = [
+            { text: '📁 Add to Playlist', class: 'menu-header' },
+            ...this.playlists.map(playlist => ({
+                text: `♪ ${playlist.name} (${playlist.tracks.length} songs)`,
+                action: () => this.addToPlaylist(track, playlist.id)
+            }))
+        ];
+        
+        menu.innerHTML = menuItems.map(item => 
+            `<div class="context-menu-item ${item.class || ''}">${item.text}</div>`
+        ).join('');
+        
+        menu.querySelectorAll('.context-menu-item:not(.menu-header)').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                // Skip header, so index needs adjustment
+                const actionIndex = index;
+                if (menuItems[actionIndex + 1] && menuItems[actionIndex + 1].action) {
+                    menuItems[actionIndex + 1].action();
+                }
+                menu.remove();
+            });
+        });
+        
+        document.body.appendChild(menu);
+        
+        // Remove menu on click outside
+        setTimeout(() => {
+            document.addEventListener('click', () => menu.remove(), { once: true });
+        }, 0);
+    }
+
+    // Add track to playlist
+    addToPlaylist(track, playlistId) {
+        const playlist = this.playlists.find(p => p.id === playlistId);
+        if (!playlist) {
+            this.showToast('Playlist not found', 'error');
+            return;
+        }
+        
+        // Check if track already exists in playlist
+        const trackExists = playlist.tracks.some(t => t.id === track.id);
+        if (trackExists) {
+            this.showToast(`"${track.title}" is already in "${playlist.name}"`, 'info');
+            return;
+        }
+        
+        // Add track to playlist
+        playlist.tracks.push(track);
+        this.savePlaylists();
+        this.updatePlaylistsUI();
+        this.showToast(`Added "${track.title}" to "${playlist.name}"`, 'success');
     }
 
     // Add track to favorites
@@ -1639,94 +2004,4 @@ if ('serviceWorker' in navigator) {
 
 // API Integration Examples (uncomment and modify for real APIs)
 
-// Spotify Web API example
-/*
-class SpotifyAPI {
-    constructor() {
-        this.clientId = 'your_spotify_client_id';
-        this.clientSecret = 'your_spotify_client_secret';
-        this.accessToken = null;
-    }
 
-    async getAccessToken() {
-        const response = await fetch('https://accounts.spotify.com/api/token', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': 'Basic ' + btoa(this.clientId + ':' + this.clientSecret)
-            },
-            body: 'grant_type=client_credentials'
-        });
-        
-        const data = await response.json();
-        this.accessToken = data.access_token;
-        return this.accessToken;
-    }
-
-    async searchTracks(query) {
-        if (!this.accessToken) {
-            await this.getAccessToken();
-        }
-
-        const response = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=20`, {
-            headers: {
-                'Authorization': 'Bearer ' + this.accessToken
-            }
-        });
-
-        const data = await response.json();
-        return data.tracks.items;
-    }
-}
-*/
-
-// Jamendo API example (for free music)
-/*
-class JamendoAPI {
-    constructor() {
-        this.clientId = 'your_jamendo_client_id';
-        this.baseUrl = 'https://api.jamendo.com/v3.0';
-    }
-
-    async searchTracks(query) {
-        const response = await fetch(`${this.baseUrl}/tracks/?client_id=${this.clientId}&format=json&search=${query}&limit=20`);
-        const data = await response.json();
-        return data.results;
-    }
-
-    async getPopularTracks() {
-        const response = await fetch(`${this.baseUrl}/tracks/?client_id=${this.clientId}&format=json&order=popularity_total&limit=20`);
-        const data = await response.json();
-        return data.results;
-    }
-}
-*/
-
-// Genius Lyrics API example
-/*
-class GeniusAPI {
-    constructor() {
-        this.accessToken = 'your_genius_access_token';
-        this.baseUrl = 'https://api.genius.com';
-    }
-
-    async searchSong(artist, title) {
-        const query = `${artist} ${title}`;
-        const response = await fetch(`${this.baseUrl}/search?q=${encodeURIComponent(query)}`, {
-            headers: {
-                'Authorization': 'Bearer ' + this.accessToken
-            }
-        });
-
-        const data = await response.json();
-        return data.response.hits;
-    }
-
-    async getLyrics(songUrl) {
-        // Note: Genius doesn't provide lyrics directly via API
-        // You would need to scrape the song page or use a lyrics service
-        // This is a placeholder for the implementation
-        return "Lyrics would be fetched from the song page";
-    }
-}
-*/

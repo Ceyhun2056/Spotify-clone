@@ -1,18 +1,18 @@
-# Spotify Clone - Music Streaming Web App
+# Music App - Local Music Player
 
-A modern, responsive music streaming web application built with vanilla HTML, CSS, and JavaScript. This Spotify-inspired clone features a clean dark theme, playlist management, search functionality, and integration with free music APIs.
+A modern, responsive local music player web application built with vanilla HTML, CSS, and JavaScript. This music player features a clean dark theme, playlist management, search functionality, and plays music files from your local library.
 
 ## 🎵 Features
 
 ### Core Functionality
 - **Modern UI**: Spotify-inspired dark theme with smooth animations and transitions
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
-- **Music Player**: Full-featured player with play/pause, next/previous, shuffle, repeat, and volume controls
+- **Local Music Player**: Full-featured player with play/pause, next/previous, shuffle, repeat, and volume controls
 - **Progress Bar**: Interactive progress bar with seek functionality
 - **Search**: Dynamic search functionality with filters for songs, artists, and albums
 - **Playlists**: Create, manage, and play custom playlists (stored locally)
 - **Favorites**: Like and save favorite tracks
-- **Lyrics**: Display song lyrics in a modal (with API integration)
+- **No API Required**: Works completely offline with your local music files
 
 ### User Interface
 - **Sidebar Navigation**: Home, Search, Library sections with playlist management
@@ -20,125 +20,84 @@ A modern, responsive music streaming web application built with vanilla HTML, CS
 - **Content Grid**: Responsive grid layout for songs, albums, and playlists
 - **Context Menus**: Right-click options for tracks and playlists
 - **Toast Notifications**: User feedback for actions
-- **Modal Dialogs**: Create playlists and view lyrics
+- **Modal Dialogs**: Create playlists and manage music library
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 - Modern web browser (Chrome, Firefox, Safari, Edge)
 - Local web server (for development)
+- MP3 or other audio files for your music library
 
-### Installation
+### Quick Start
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/spotify-clone.git
-   cd spotify-clone
+   git clone https://github.com/your-username/music-app.git
+   cd music-app
    ```
 
-2. **Open with a local server:**
-   
-   Using Python:
+2. **Run the setup script (Windows):**
    ```bash
-   python -m http.server 8000
+   setup-local-music.bat
    ```
    
-   Using Node.js (with live-server):
+   Or manually start the server:
    ```bash
-   npx live-server
-   ```
-   
-   Using PHP:
-   ```bash
-   php -S localhost:8000
+   node server.js
    ```
 
-3. **Open in browser:**
-   Navigate to `http://localhost:8000`
+3. **Open your browser:**
+   Navigate to `http://localhost:3000`
 
+4. **Add your music:**
+   See `LOCAL_MUSIC_GUIDE.md` for detailed instructions on adding real music files.
+   
 ## 📁 Project Structure
 
 ```
-spotify-clone/
-├── index.html          # Main HTML file
-├── styles.css          # All styling and responsive design
-├── app.js              # Core JavaScript functionality
-├── sw.js               # Service Worker for offline support
-├── assets/             # Static assets
-│   └── icons/          # App icons and images
-├── README.md           # Project documentation
-└── LICENSE            # License file
+music-app/
+├── index.html              # Main HTML file
+├── styles.css              # All styling and responsive design
+├── app.js                  # Core JavaScript functionality
+├── music-library.js        # Local music database
+├── server.js               # Node.js development server
+├── sw.js                   # Service Worker for offline support
+├── setup-local-music.bat   # Automated setup script
+├── LOCAL_MUSIC_GUIDE.md    # Guide for adding real music
+├── music/                  # Local music library
+│   ├── tracks/             # MP3 audio files
+│   └── covers/             # Album artwork (JPG)
+├── assets/                 # Static assets
+│   └── icons/              # App icons and images
+├── README.md               # Project documentation
+└── LICENSE                # License file
 ```
 
-## 🔧 Configuration
+## 🎵 Local Music Library
 
-### API Integration
+### Adding Your Music
 
-The app is designed to work with several free APIs for music metadata and streaming:
+1. **Download royalty-free music** from:
+   - YouTube Audio Library
+   - Freesound.org
+   - Internet Archive
+   - Incompetech.com
 
-#### 1. Spotify Web API (Free Tier)
-- **Purpose**: Metadata, album art, 30-second previews
-- **Setup**:
-  1. Create a Spotify Developer account
-  2. Create an app to get Client ID and Secret
-  3. Add credentials to `app.js`
+2. **Place MP3 files** in `music/tracks/` directory
+3. **Add album artwork** (300x300px) in `music/covers/` directory
+4. **Update `music-library.js`** to add new tracks to the database
 
-```javascript
-const SPOTIFY_CONFIG = {
-    clientId: 'your_spotify_client_id',
-    clientSecret: 'your_spotify_client_secret'
-};
-```
+### Supported Formats
+- **Audio**: MP3, WAV, M4A, OGG
+- **Images**: JPG, PNG, WebP (recommended: 300x300px)
 
-#### 2. Jamendo API (Free Music)
-- **Purpose**: Free Creative Commons music for full playback
-- **Setup**:
-  1. Register at Jamendo Developer
-  2. Get API key
-  3. Add to configuration
-
-```javascript
-const JAMENDO_CONFIG = {
-    clientId: 'your_jamendo_client_id'
-};
-```
-
-#### 3. Genius Lyrics API
-- **Purpose**: Song lyrics
-- **Setup**:
-  1. Create Genius account
-  2. Get access token
-  3. Configure in app
-
-```javascript
-const GENIUS_CONFIG = {
-    accessToken: 'your_genius_access_token'
-};
-```
-
-#### 4. Alternative APIs
-- **MusicBrainz**: Free metadata (no key required)
-- **Lyrics.ovh**: Free lyrics API
-- **Last.fm**: Music metadata and recommendations
-
-### Environment Setup
-
-Create a `config.js` file (not tracked in git):
-
-```javascript
-const CONFIG = {
-    spotify: {
-        clientId: 'your_spotify_client_id',
-        clientSecret: 'your_spotify_client_secret'
-    },
-    jamendo: {
-        clientId: 'your_jamendo_client_id'
-    },
-    genius: {
-        accessToken: 'your_genius_access_token'
-    }
-};
-```
+### Sample Library
+The app comes with a complete sample library:
+- 8 placeholder audio tracks
+- 17 cover images for albums and genres
+- 4 curated playlists
+- 6 music genres
 
 ## 🎮 Usage
 
@@ -193,13 +152,13 @@ const CONFIG = {
 - Class-based architecture
 - Event-driven programming
 - Local storage for data persistence
-- Modular API integration
+- Local music library integration
 
 ### Key Classes and Methods
 
-#### SpotifyClone Main Class
+#### MusicApp Main Class
 ```javascript
-class SpotifyClone {
+class MusicApp {
     constructor()           // Initialize app
     navigateToPage()        // Handle navigation
     playTrack()            // Play individual tracks
@@ -211,22 +170,16 @@ class SpotifyClone {
 }
 ```
 
-#### API Integration Classes
+#### MusicLibrary Class (`music-library.js`)
 ```javascript
-class SpotifyAPI {
-    getAccessToken()       // OAuth authentication
-    searchTracks()         // Search Spotify catalog
-    getTrackDetails()      // Get metadata
-}
-
-class JamendoAPI {
-    searchTracks()         // Search free music
-    getPopularTracks()     // Get trending
-}
-
-class GeniusAPI {
-    searchSong()           // Find lyrics
-    getLyrics()            // Fetch lyrics
+class MusicLibrary {
+    getAllTracks()         // Get all tracks
+    searchTracks()         // Search local library
+    getTrackById()         // Get specific track
+    getAlbums()            // Get album list
+    getArtists()           // Get artist list
+    getPlaylists()         // Get playlist list
+    getGenres()            // Get genre list
 }
 ```
 
@@ -269,17 +222,17 @@ The app is fully responsive and provides:
 ## 🔒 Privacy & Legal
 
 ### Important Notes
-- **No Premium Features**: Only uses free APIs and 30-second previews
-- **Local Storage**: User data stored locally, not on servers
-- **API Compliance**: Follows all API terms of service
-- **Copyright**: Respects music licensing and fair use
+- **Local-Only**: All data stays on your device, no external servers
+- **No Data Collection**: App doesn't collect any personal information
+- **Offline Capable**: Works completely without internet connection
+- **Copyright**: Use only legally obtained or royalty-free music files
 
 ### Licensing
-This project is for educational purposes. When using with real APIs:
-- Comply with API rate limits
+This project is for personal use. When adding music:
+- Use only royalty-free or legally obtained music
 - Respect copyright laws
-- Follow platform terms of service
-- Consider user privacy
+- Follow licensing terms of your music sources
+- Consider fair use guidelines
 
 ## 🤝 Contributing
 
@@ -302,13 +255,13 @@ This project is for educational purposes. When using with real APIs:
 
 **Audio not playing:**
 - Check browser audio permissions
-- Verify API URLs and keys
-- Ensure HTTPS for production
+- Verify audio file paths are correct
+- Ensure supported audio format (MP3, WAV, etc.)
 
-**API requests failing:**
-- Check network connection
-- Verify API credentials
-- Check CORS configuration
+**Music files not loading:**
+- Check file paths in `music-library.js`
+- Verify files exist in `music/tracks/` directory
+- Ensure server is running for local file access
 
 **Responsive issues:**
 - Test on different screen sizes
@@ -342,9 +295,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Spotify for design inspiration
 - Font Awesome for icons
-- Various music APIs for data access
+- Royalty-free music providers (YouTube Audio Library, Freesound, etc.)
 - Open source community for tools and libraries
 
 ---
 
-**Note**: This is a demonstration project for educational purposes. For production use, ensure proper licensing, API compliance, and user data protection.
+**Note**: This is a local music player for personal use. Always respect copyright laws and use only legally obtained or royalty-free music files.

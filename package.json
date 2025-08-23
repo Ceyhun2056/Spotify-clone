@@ -1,32 +1,31 @@
 {
-  "name": "spotify-clone",
+  "name": "music-app",
   "version": "1.0.0",
-  "description": "A modern music streaming web application built with vanilla HTML, CSS, and JavaScript",
+  "description": "A modern local music player web application built with vanilla HTML, CSS, and JavaScript",
   "main": "index.html",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "serve": "python -m http.server 8000",
-    "serve-php": "php -S localhost:8000",
-    "lint": "echo 'No linting configured yet'",
+    "setup": "setup-local-music.bat",
     "build": "echo 'No build process needed for vanilla JS'",
     "test": "echo 'No tests configured yet'"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/spotify-clone.git"
+    "url": "https://github.com/your-username/music-app.git"
   },
   "keywords": [
     "music",
-    "streaming",
-    "spotify",
+    "player",
+    "local-music",
     "javascript",
     "html",
     "css",
     "pwa",
     "web-app",
     "playlist",
-    "audio"
+    "audio",
+    "offline"
   ],
   "author": "Your Name",
   "license": "MIT",

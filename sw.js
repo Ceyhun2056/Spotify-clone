@@ -1,7 +1,7 @@
-// Service Worker for Spotify Clone
+// Service Worker for Music App
 // Provides offline functionality and caching
 
-const CACHE_NAME = 'spotify-clone-v1';
+const CACHE_NAME = 'music-app-v1';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -23,11 +23,23 @@ self.addEventListener('install', (event) => {
 
 // Fetch event - serve cached content when offline
 self.addEventListener('fetch', (event) => {
+    // Skip external URLs that might fail
+    if (event.request.url.startsWith('https://via.placeholder.com') || 
+        event.request.url.startsWith('https://i1.sndcdn.com')) {
+        return;
+    }
+    
     event.respondWith(
         caches.match(event.request)
             .then((response) => {
                 // Return cached version or fetch from network
-                return response || fetch(event.request);
+                return response || fetch(event.request).catch(() => {
+                    // Return a fallback for failed requests
+                    if (event.request.destination === 'image') {
+                        return caches.match('/assets/icons/music.png');
+                    }
+                    return new Response('Network error', { status: 408 });
+                });
             }
         )
     );

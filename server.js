@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const url = require('url');
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.argv[2] || process.env.PORT || 8000;
 const HOST = process.env.HOST || 'localhost';
 
 // MIME types mapping
@@ -73,7 +73,9 @@ const server = http.createServer((req, res) => {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
                 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-                'Cache-Control': ext === '.html' ? 'no-cache' : 'public, max-age=3600'
+                'Cache-Control': (ext === '.html' || ext === '.js') ? 'no-cache, no-store, must-revalidate' : 'public, max-age=3600',
+                'Pragma': (ext === '.html' || ext === '.js') ? 'no-cache' : '',
+                'Expires': (ext === '.html' || ext === '.js') ? '0' : ''
             });
             
             res.end(data);
