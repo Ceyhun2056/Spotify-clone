@@ -280,6 +280,7 @@ class MusicApp {
         document.getElementById('favoriteBtn').addEventListener('click', () => this.toggleFavorite());
         document.getElementById('lyricsBtn').addEventListener('click', () => this.showLyrics());
         document.getElementById('vinylModeBtn').addEventListener('click', () => this.toggleVinylMode());
+        document.getElementById('vinylCloseBtn').addEventListener('click', () => this.toggleVinylMode());
 
         // Volume control
         const volumeSlider = document.getElementById('volumeSlider');
