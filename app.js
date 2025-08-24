@@ -93,18 +93,7 @@ class MusicApp {
                 type: 'track',
                 audioSrc: 'https://ceyhun2056.github.io/music-links/music/Taylor_Swift_-_Sweet_Nothing_CeeNaija.com_.mp3'
             },
-            {
-                id: '6',
-                title: 'Don\'t Leave Me Lonely',
-                subtitle: 'Clean Bandit',
-                artist: 'Clean Bandit',
-                album: 'What Is Love?',
-                duration: '3:46',
-                image: 'assets/icons/ab67616d0000b273a7a0822e731ff95c86bc8649.jfif',
-                genre: 'Electronic Pop',
-                type: 'track',
-                audioSrc: 'https://ceyhun2056.github.io/music-links/music/Clean_Bandit_-_Don_t_Leave_Me_Lonely_CeeNaija.com_.mp3'
-            },
+            
             {
                 id: '7',
                 title: 'True Love',
@@ -131,15 +120,15 @@ class MusicApp {
             },
             {
                 id: '9',
-                title: 'Blinding Lights',
-                subtitle: 'The Weeknd',
-                artist: 'The Weeknd',
-                album: 'After Hours',
-                duration: '3:20',
-                image: 'https://i1.sndcdn.com/artworks-7fmpy8Mz111f-0-t1080x1080.jpg',
-                genre: 'Synth Pop',
+                title: 'DjaDja (feat. Loredana)',
+                subtitle: 'Aya Nakamura',
+                artist: 'Aya Nakamura feat. Loredana',
+                album: 'Nakamura',
+                duration: '2:56',
+                image: 'https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/25/d0/40/25d040cc-510f-912b-f5a1-2b1b6caf615a/190295329389.jpg/360x360bb.webp',
+                genre: 'Pop',
                 type: 'track',
-                audioSrc: 'https://ceyhun2056.github.io/music-links/music/The Weeknd - Blinding Lights (192kbps).mp3'
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/Aya_Nakamura_feat._Loredana_-_Djadja_feat_Loredana_(SkySound.cc).mp3'
             },
             {
                 id: '10',
@@ -164,6 +153,43 @@ class MusicApp {
                 genre: 'Synth Pop',
                 type: 'track',
                 audioSrc: 'https://ceyhun2056.github.io/music-links/music/The Weeknd - Blinding Lights (192kbps) (1).mp3'
+            },
+           
+            {
+                id: '13',
+                title: 'Kırmızı',
+                subtitle: 'Hande Yener',
+                artist: 'Hande Yener',
+                album: 'Hipnoz',
+                duration: '4:12',
+                image: 'https://mp3.big.az/artists_photo/221.jpg',
+                genre: 'Turkish Pop',
+                type: 'track',
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/Hande_Yener_-_Kirmizi_-_www.BiG.AZ.mp3'
+            },
+            {
+                id: '14',
+                title: 'Titanium (Acoustic)',
+                subtitle: 'Sia',
+                artist: 'Sia',
+                album: '1000 Forms of Fear',
+                duration: '4:05',
+                image: 'https://images.genius.com/00495268ff2cb5447692a8c6365cd491.1000x1000x1.png',
+                genre: 'Acoustic Pop',
+                type: 'track',
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/Sia_-_Titanium_acoustic_(SkySound.cc).mp3'
+            },
+            {
+                id: '15',
+                title: 'Feel Invincible',
+                subtitle: 'Skillet',
+                artist: 'Skillet',
+                album: 'Unleashed',
+                duration: '3:58',
+                image: 'https://images.genius.com/ee51fa88939b63d2b7f8f36fce4a257c.1000x1000x1.jpg',
+                genre: 'Rock',
+                type: 'track',
+                audioSrc: 'https://ceyhun2056.github.io/music-links/music/Skillet_-_Feel_Invincible_(SkySound.cc).mp3'
             }
         ];
 
@@ -174,7 +200,7 @@ class MusicApp {
                 subtitle: 'Popular songs',
                 image: 'assets/icons/music.png',
                 type: 'playlist',
-                tracks: ['1', '9', '11', '7', '8', '6'] // Anti-Hero, Blinding Lights, Blinding Lights Alt, True Love, YOU & I, Don't Leave Me Lonely
+                tracks: ['1', '9', '11', '7', '8', '12', '14', '15'] // Anti-Hero, DjaDja, Blinding Lights Alt, True Love, YOU & I, Don't Leave Me Lonely, Titanium, Feel Invincible
             },
             {
                 id: 'playlist2',
@@ -182,7 +208,7 @@ class MusicApp {
                 subtitle: 'Relaxing tunes',
                 image: 'assets/icons/music.png',
                 type: 'playlist',
-                tracks: ['3', '4', '5', '2', '10'] // Midnight Rain, Snow On The Beach, Sweet Nothing, Last Christmas, I Feel It Coming
+                tracks: ['3', '4', '5', '2', '10', '13', '14'] // Midnight Rain, Snow On The Beach, Sweet Nothing, Last Christmas, I Feel It Coming, Kırmızı, Titanium Acoustic
             }
         ];
 
@@ -220,6 +246,7 @@ class MusicApp {
         document.querySelectorAll('[data-page]').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
+
                 this.navigateToPage(e.target.closest('[data-page]').dataset.page);
             });
         });
