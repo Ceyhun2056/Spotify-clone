@@ -1454,26 +1454,26 @@ body {
 /* Vinyl Player Container */
 .vinyl-player {
     position: fixed;
-    bottom: 90px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     z-index: 1000;
-    border: 2px solid #333;
     backdrop-filter: blur(10px);
-    max-width: 450px;
-    width: 90vw;
+    padding: 20px;
 }
 
 /* Vinyl Container */
 .vinyl-container {
     position: relative;
-    width: 320px;
-    height: 320px;
-    margin: 0 auto 20px;
+    width: 350px;
+    height: 350px;
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1481,8 +1481,8 @@ body {
 
 /* Vinyl Record */
 .vinyl-record {
-    width: 260px;
-    height: 260px;
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
     background: linear-gradient(45deg, #1a1a1a 0%, #333 50%, #1a1a1a 100%);
     position: absolute;
@@ -1648,6 +1648,31 @@ body {
     font-size: 14px;
     color: var(--text-secondary);
     margin: 0;
+}
+
+/* Vinyl Close Button */
+.vinyl-close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.vinyl-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
 }
 
 /* Vinyl Mode Button */
