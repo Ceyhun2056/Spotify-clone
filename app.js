@@ -15,6 +15,9 @@ class MusicApp {
         this.repeatMode = 'none'; // 'none', 'one', 'all'
         this.volume = 0.5;
         
+        // Vinyl player state
+        this.vinylMode = false;
+        
         // User authentication state
         this.currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
         this.isLoggedIn = !!this.currentUser;
@@ -276,6 +279,7 @@ class MusicApp {
         document.getElementById('repeatBtn').addEventListener('click', () => this.toggleRepeat());
         document.getElementById('favoriteBtn').addEventListener('click', () => this.toggleFavorite());
         document.getElementById('lyricsBtn').addEventListener('click', () => this.showLyrics());
+        document.getElementById('vinylModeBtn').addEventListener('click', () => this.toggleVinylMode());
 
         // Volume control
         const volumeSlider = document.getElementById('volumeSlider');
@@ -532,6 +536,15 @@ class MusicApp {
         this.audioPlayer.addEventListener('error', (e) => {
             console.error('Audio error:', e);
             this.showToast('Error playing track', 'error');
+        });
+
+        // Vinyl player events
+        this.audioPlayer.addEventListener('play', () => {
+            this.updateVinylAnimation(true);
+        });
+
+        this.audioPlayer.addEventListener('pause', () => {
+            this.updateVinylAnimation(false);
         });
     }
 
@@ -1449,6 +1462,8 @@ class MusicApp {
             this.isPlaying = true;
             this.updatePlayerUI();
             this.updatePlayButton();
+            // Update vinyl display if vinyl mode is active
+            this.updateVinylDisplay();
         } else {
             console.warn('No audio source available for track:', track.title);
             alert('No audio available for this track');
@@ -1981,6 +1996,68 @@ class MusicApp {
         
         // In a real app, you would re-filter the search results
         this.showToast(`Filter set to: ${filter}`, 'success');
+    }
+
+    // ============================
+    // VINYL PLAYER METHODS
+    // ============================
+
+    // Toggle vinyl mode
+    toggleVinylMode() {
+        this.vinylMode = !this.vinylMode;
+        const vinylPlayer = document.getElementById('vinylPlayer');
+        const vinylModeBtn = document.getElementById('vinylModeBtn');
+        
+        if (this.vinylMode) {
+            vinylPlayer.classList.remove('hidden');
+            vinylModeBtn.classList.add('active');
+            this.updateVinylDisplay();
+            this.showToast('Vinyl mode enabled', 'success');
+        } else {
+            vinylPlayer.classList.add('hidden');
+            vinylModeBtn.classList.remove('active');
+            this.showToast('Vinyl mode disabled', 'info');
+        }
+    }
+
+    // Update vinyl display with current track info
+    updateVinylDisplay() {
+        if (!this.vinylMode || !this.currentTrack) return;
+
+        const vinylAlbumArt = document.getElementById('vinylAlbumArt');
+        const vinylTrackTitle = document.getElementById('vinylTrackTitle');
+        const vinylTrackArtist = document.getElementById('vinylTrackArtist');
+
+        // Update album art
+        vinylAlbumArt.src = this.currentTrack.image || 'assets/icons/vinyl.png';
+        vinylAlbumArt.alt = `${this.currentTrack.title} album art`;
+
+        // Update track info
+        vinylTrackTitle.textContent = this.currentTrack.title;
+        vinylTrackArtist.textContent = this.currentTrack.artist;
+
+        // Update vinyl animation based on current play state
+        this.updateVinylAnimation(this.isPlaying);
+    }
+
+    // Update vinyl spinning animation and tonearm position
+    updateVinylAnimation(isPlaying) {
+        if (!this.vinylMode) return;
+
+        const vinylRecord = document.getElementById('vinylRecord');
+        const tonearm = document.getElementById('tonearm');
+
+        if (isPlaying) {
+            // Start spinning animation
+            vinylRecord.classList.add('spinning');
+            tonearm.classList.remove('stopped');
+            tonearm.classList.add('playing');
+        } else {
+            // Stop spinning animation with smooth transition
+            vinylRecord.classList.remove('spinning');
+            tonearm.classList.remove('playing');
+            tonearm.classList.add('stopped');
+        }
     }
 
     // Save playlists to localStorage

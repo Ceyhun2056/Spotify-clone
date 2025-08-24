@@ -1446,3 +1446,274 @@ body {
 .toast.error {
     background-color: var(--accent-color);
 }
+
+/* ============================
+   VINYL RECORD PLAYER STYLES
+   ============================ */
+
+/* Vinyl Player Container */
+.vinyl-player {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    border: 2px solid #333;
+    backdrop-filter: blur(10px);
+    max-width: 420px;
+    width: 90vw;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+/* Vinyl Container */
+.vinyl-container {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* Vinyl Record */
+.vinyl-record {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #1a1a1a 0%, #333 50%, #1a1a1a 100%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.8),
+        0 5px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Vinyl Grooves */
+.vinyl-grooves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: repeating-conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(255, 255, 255, 0.05) 1deg,
+        transparent 2deg
+    );
+    pointer-events: none;
+}
+
+/* Vinyl Label (Center) */
+.vinyl-label {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        inset 0 2px 5px rgba(255, 255, 255, 0.2),
+        inset 0 -2px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Album Art in Vinyl Center */
+.vinyl-album-art {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #2a2a2a;
+    display: block;
+    margin: 0;
+}
+
+/* Center Hole */
+.vinyl-center-hole {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* VINYL SPINNING ANIMATION */
+@keyframes cleanVinylSpin {
+    0% { 
+        transform: rotate(0deg);
+    }
+    100% { 
+        transform: rotate(360deg);
+    }
+}
+
+.vinyl-record.spinning {
+    animation: cleanVinylSpin 3s linear infinite;
+}
+
+/* Tonearm */
+.tonearm {
+    position: absolute;
+    top: 40px;
+    left: 60%;
+    width: 150px;
+    height: 200px;
+    transform-origin: 20px 20px;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+}
+
+/* Tonearm Base */
+.tonearm-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #666 0%, #333 100%);
+    border-radius: 50%;
+    box-shadow: 
+        0 3px 6px rgba(0, 0, 0, 0.4),
+        inset 0 1px 3px rgba(255, 255, 255, 0.2);
+}
+
+/* Tonearm Arm */
+.tonearm-arm {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, #888 0%, #555 100%);
+    border-radius: 2px;
+    transform-origin: 0 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Tonearm Head (Needle) */
+.tonearm-head {
+    position: absolute;
+    top: 17px;
+    right: 8px;
+    width: 12px;
+    height: 10px;
+    background: #ff6b6b;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Tonearm States */
+.tonearm.playing {
+    transform: rotate(25deg);
+}
+
+.tonearm.stopped {
+    transform: rotate(-5deg);
+}
+
+/* Vinyl Info Section */
+.vinyl-info {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.vinyl-track-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.vinyl-track-artist {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Vinyl Mode Button */
+#vinylModeBtn {
+    transition: all 0.3s ease;
+}
+
+#vinylModeBtn:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+#vinylModeBtn.active {
+    color: var(--primary-color);
+    background-color: rgba(29, 185, 84, 0.1);
+}
+
+/* Responsive Design for Vinyl Player */
+@media (max-width: 768px) {
+    .vinyl-player {
+        width: 98vw;
+        height: 320px;
+        padding: 0;
+        bottom: 80px;
+    }
+    .vinyl-container {
+        width: 200px;
+        height: 200px;
+    }
+    .vinyl-record {
+        width: 160px;
+        height: 160px;
+    }
+    .tonearm {
+        width: 90px;
+        height: 120px;
+        left: 60%;
+        top: 20px;
+    }
+    .tonearm-arm {
+        width: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vinyl-player {
+        height: 220px;
+    }
+    .vinyl-container {
+        width: 120px;
+        height: 120px;
+    }
+    .vinyl-record {
+        width: 100px;
+        height: 100px;
+    }
+    .vinyl-label {
+        width: 40px;
+        height: 40px;
+    }
+    .vinyl-album-art {
+        width: 25px;
+        height: 25px;
+    }
+}

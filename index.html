@@ -226,12 +226,37 @@
             <button class="control-btn" id="lyricsBtn">
                 <i class="fas fa-microphone-alt"></i>
             </button>
+            <button class="control-btn" id="vinylModeBtn" title="Toggle Vinyl Mode">
+                <i class="fas fa-record-vinyl"></i>
+            </button>
             <button class="control-btn" id="volumeBtn">
                 <i class="fas fa-volume-up"></i>
             </button>
             <div class="volume-slider">
                 <input type="range" min="0" max="100" value="50" id="volumeSlider">
             </div>
+        </div>
+    </div>
+
+    <!-- Vinyl Record Player -->
+    <div class="vinyl-player hidden" id="vinylPlayer">
+        <div class="vinyl-container">
+            <div class="vinyl-record" id="vinylRecord">
+                <div class="vinyl-grooves"></div>
+                <div class="vinyl-label">
+                    <img src="assets/icons/vinyl.png" alt="Album Art" class="vinyl-album-art" id="vinylAlbumArt">
+                    <div class="vinyl-center-hole"></div>
+                </div>
+            </div>
+            <div class="tonearm" id="tonearm">
+                <div class="tonearm-base"></div>
+                <div class="tonearm-arm"></div>
+                <div class="tonearm-head"></div>
+            </div>
+        </div>
+        <div class="vinyl-info">
+            <h3 class="vinyl-track-title" id="vinylTrackTitle">Select a song</h3>
+            <p class="vinyl-track-artist" id="vinylTrackArtist">No artist</p>
         </div>
     </div>
 
