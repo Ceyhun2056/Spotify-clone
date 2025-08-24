@@ -1454,9 +1454,9 @@ body {
 /* Vinyl Player Container */
 .vinyl-player {
     position: fixed;
-    top: 50%;
+    bottom: 90px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
     border-radius: 20px;
     padding: 30px;
@@ -1466,12 +1466,6 @@ body {
     backdrop-filter: blur(10px);
     max-width: 450px;
     width: 90vw;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
 }
 
 /* Vinyl Container */
@@ -1479,10 +1473,10 @@ body {
     position: relative;
     width: 320px;
     height: 320px;
+    margin: 0 auto 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
 }
 
 /* Vinyl Record */
@@ -1566,10 +1560,10 @@ body {
 /* VINYL SPINNING ANIMATION */
 @keyframes cleanVinylSpin {
     0% { 
-        transform: rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg);
     }
     100% { 
-        transform: rotate(360deg);
+        transform: translate(-50%, -50%) rotate(360deg);
     }
 }
 
